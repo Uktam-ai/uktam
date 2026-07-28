@@ -20,6 +20,7 @@ data class ConversationMessage(
     val originalText: String,
     val translatedText: String,
     val speakerLang: String,
+    val targetLang: String,
     val isPrimaryUser: Boolean,
     val transcriptionTimeMs: Long = 0L,
     val translationTimeMs: Long = 0L
@@ -241,6 +242,7 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
                         originalText = resultText,
                         translatedText = translated,
                         speakerLang = _srcLang.value,
+                        targetLang = targetLangCode,
                         isPrimaryUser = _srcLang.value == _primaryLang.value,
                         transcriptionTimeMs = asrTime,
                         translationTimeMs = transTime

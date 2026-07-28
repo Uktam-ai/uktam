@@ -442,7 +442,7 @@ fun AsrScreen(
                                 )
                                 
                                 Spacer(modifier = Modifier.width(16.dp))
-                                val targetLangCode = if (isPrimary) secondaryLang else primaryLang
+                                val targetLangCode = message.targetLang
                                 IconButton(
                                     onClick = { viewModel.speakTranslation(message.translatedText, targetLangCode, onTtsMissing) },
                                     modifier = Modifier.size(28.dp).background(if (isPrimary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondary, shape = RoundedCornerShape(50))
