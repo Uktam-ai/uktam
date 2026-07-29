@@ -50,7 +50,7 @@ jobs:
             -DLLAMA_BUILD_SERVER=OFF \
             -DLLAMA_BUILD_TESTS=OFF \
             -DLLAMA_TOOLS=OFF
-          ninja
+          ninja src/libllama.so ggml/src/libggml.so ggml/src/libggml-base.so ggml/src/libggml-cpu.so ggml/src/libggml-vulkan.so
           
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
