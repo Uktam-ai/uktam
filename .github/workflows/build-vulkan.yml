@@ -29,6 +29,7 @@ jobs:
         run: |
           mkdir -p vulkan_inc
           cp -r /usr/include/vulkan vulkan_inc/
+          cp -r /usr/include/vk_video vulkan_inc/
 
       - name: Build llama.cpp
         run: |
