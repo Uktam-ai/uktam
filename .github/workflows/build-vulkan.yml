@@ -25,6 +25,11 @@ jobs:
           sudo apt update
           sudo apt install -y vulkan-sdk ninja-build
           
+      - name: Prepare Vulkan C++ Headers
+        run: |
+          mkdir -p vulkan_inc
+          cp -r /usr/include/vulkan vulkan_inc/
+
       - name: Build llama.cpp
         run: |
           mkdir build
@@ -36,6 +41,7 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=BOTH \
             -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \
+            -DCMAKE_CXX_FLAGS="-I$GITHUB_WORKSPACE/vulkan_inc" \
             -DBUILD_SHARED_LIBS=ON \
             -DGGML_VULKAN=ON \
             -DLLAMA_BUILD_EXAMPLES=OFF \
