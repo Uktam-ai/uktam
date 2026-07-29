@@ -50,15 +50,15 @@ jobs:
             -DLLAMA_BUILD_SERVER=OFF \
             -DLLAMA_BUILD_TESTS=OFF \
             -DLLAMA_TOOLS=OFF
-          ninja src/libllama.so ggml/src/libggml.so ggml/src/libggml-base.so ggml/src/libggml-cpu.so ggml/src/libggml-vulkan.so
+          ninja bin/libllama.so bin/libggml.so bin/libggml-base.so bin/libggml-cpu.so bin/libggml-vulkan.so
           
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: llama-vulkan-android
           path: |
-            build/src/libllama.so
-            build/ggml/src/libggml.so
-            build/ggml/src/libggml-base.so
-            build/ggml/src/libggml-cpu.so
-            build/ggml/src/libggml-vulkan.so
+            build/bin/libllama.so
+            build/bin/libggml.so
+            build/bin/libggml-base.so
+            build/bin/libggml-cpu.so
+            build/bin/libggml-vulkan.so
