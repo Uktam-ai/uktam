@@ -16,7 +16,7 @@ jobs:
       - name: Set up Android NDK
         uses: nttld/setup-ndk@v1
         with:
-          id: r27b
+          ndk-version: r27b
           
       - name: Install Vulkan SDK
         run: |
