@@ -47,7 +47,7 @@ jobs:
             -DCMAKE_SHARED_LINKER_FLAGS="-Wl,-z,max-page-size=16384" \
             -DBUILD_SHARED_LIBS=ON \
             -DGGML_VULKAN=ON \
-            -DGGML_OPENMP=ON \
+            -DGGML_OPENMP=OFF \
             -DLLAMA_BUILD_EXAMPLES=OFF \
             -DLLAMA_BUILD_SERVER=OFF \
             -DLLAMA_BUILD_TESTS=OFF \
