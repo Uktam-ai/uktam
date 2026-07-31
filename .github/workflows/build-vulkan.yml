@@ -43,8 +43,10 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release \
             -DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=BOTH \
             -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=BOTH \
-            -DCMAKE_CXX_FLAGS="-I$GITHUB_WORKSPACE/vulkan_inc" \
+            -DCMAKE_C_FLAGS="-march=armv8.2-a+dotprod+fp16" \
+            -DCMAKE_CXX_FLAGS="-march=armv8.2-a+dotprod+fp16 -I$GITHUB_WORKSPACE/vulkan_inc" \
             -DCMAKE_SHARED_LINKER_FLAGS="-Wl,-z,max-page-size=16384" \
+            -DCMAKE_MODULE_LINKER_FLAGS="-Wl,-z,max-page-size=16384" \
             -DBUILD_SHARED_LIBS=ON \
             -DGGML_VULKAN=ON \
             -DGGML_BACKEND_DL=ON \
