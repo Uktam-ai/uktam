@@ -33,7 +33,14 @@ val AppFontFamily = FontFamily(
     Font(R.font.baloothambi2_medium, FontWeight.Medium),
     Font(R.font.baloothambi2_semibold, FontWeight.SemiBold),
     Font(R.font.baloothambi2_bold, FontWeight.Bold),
-    Font(R.font.baloothambi2_extrabold, FontWeight.ExtraBold)
+    Font(R.font.baloothambi2_extrabold, FontWeight.ExtraBold),
+
+    // Fallback: Baloo Chettan 2 (Supports Malayalam)
+    Font(R.font.baloochettan2_regular, FontWeight.Normal),
+    Font(R.font.baloochettan2_medium, FontWeight.Medium),
+    Font(R.font.baloochettan2_semibold, FontWeight.SemiBold),
+    Font(R.font.baloochettan2_bold, FontWeight.Bold),
+    Font(R.font.baloochettan2_extrabold, FontWeight.ExtraBold)
 )
 
 val baseline = Typography()

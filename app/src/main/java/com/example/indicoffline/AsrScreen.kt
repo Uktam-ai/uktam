@@ -182,7 +182,7 @@ fun AsrScreen(
                         }
                     }
                 }
-                val availableLanguages = listOf("hi", "kn", "ta", "te")
+                val availableLanguages = listOf("hi", "kn", "ta", "te", "mr", "ml")
                 var primaryExpanded by remember { mutableStateOf(false) }
                 var secondaryExpanded by remember { mutableStateOf(false) }
                 var primaryBoxWidth by remember { mutableStateOf(0) }

@@ -128,6 +128,8 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
             "kn" -> "ಕನ್ನಡ"
             "ta" -> "தமிழ்"
             "te" -> "తెలుగు"
+            "mr" -> "मराठी"
+            "ml" -> "മലയാളം"
             else -> "Unknown"
         }
     }
@@ -138,6 +140,8 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
             "kn" -> "Kannada"
             "ta" -> "Tamil"
             "te" -> "Telugu"
+            "mr" -> "Marathi"
+            "ml" -> "Malayalam"
             else -> "Unknown"
         }
     }
@@ -272,6 +276,8 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
             "kn" -> Locale.Builder().setLanguage("kn").setRegion("IN").build()
             "ta" -> Locale.Builder().setLanguage("ta").setRegion("IN").build()
             "te" -> Locale.Builder().setLanguage("te").setRegion("IN").build()
+            "mr" -> Locale.Builder().setLanguage("mr").setRegion("IN").build()
+            "ml" -> Locale.Builder().setLanguage("ml").setRegion("IN").build()
             else -> Locale.Builder().setLanguage("hi").setRegion("IN").build()
         }
         val result = tts?.setLanguage(locale)
