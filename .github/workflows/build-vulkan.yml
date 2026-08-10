@@ -32,6 +32,22 @@ jobs:
           cp -r /usr/include/vk_video vulkan_inc/
           cp -r /usr/include/spirv vulkan_inc/
 
+      - name: Prepare OpenCL Headers & Loader
+        run: |
+          # Fetch OpenCL Headers
+          git clone https://github.com/KhronosGroup/OpenCL-Headers.git
+          
+          # Fetch and build OpenCL ICD Loader for Android
+          git clone https://github.com/KhronosGroup/OpenCL-ICD-Loader.git
+          mkdir -p OpenCL-ICD-Loader/build
+          cd OpenCL-ICD-Loader/build
+          cmake .. -G "Ninja" \
+            -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+            -DANDROID_ABI=arm64-v8a \
+            -DANDROID_PLATFORM=android-31 \
+            -DOPENCL_ICD_LOADER_HEADERS_DIR=$GITHUB_WORKSPACE/OpenCL-Headers
+          ninja
+
       - name: Build llama.cpp
         run: |
           mkdir build
@@ -49,13 +65,16 @@ jobs:
             -DCMAKE_MODULE_LINKER_FLAGS="-Wl,-z,max-page-size=16384" \
             -DBUILD_SHARED_LIBS=ON \
             -DGGML_VULKAN=ON \
+            -DGGML_OPENCL=ON \
+            -DOpenCL_INCLUDE_DIR=$GITHUB_WORKSPACE/OpenCL-Headers \
+            -DOpenCL_LIBRARY=$GITHUB_WORKSPACE/OpenCL-ICD-Loader/build/libOpenCL.so \
             -DGGML_BACKEND_DL=ON \
             -DGGML_OPENMP=OFF \
             -DLLAMA_BUILD_EXAMPLES=OFF \
             -DLLAMA_BUILD_SERVER=OFF \
             -DLLAMA_BUILD_TESTS=OFF \
             -DLLAMA_TOOLS=OFF
-          ninja bin/libllama.so bin/libllama-common.so bin/libggml.so bin/libggml-base.so bin/libggml-cpu.so bin/libggml-vulkan.so
+          ninja bin/libllama.so bin/libllama-common.so bin/libggml.so bin/libggml-base.so bin/libggml-cpu.so bin/libggml-vulkan.so bin/libggml-opencl.so
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -68,3 +87,4 @@ jobs:
             build/bin/libggml-base.so
             build/bin/libggml-cpu.so
             build/bin/libggml-vulkan.so
+            build/bin/libggml-opencl.so
