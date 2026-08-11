@@ -14,7 +14,7 @@ Uktam.ai is a powerful, entirely offline Android application for real-time speec
 
 ## Key Features
 
-* **Supported Languages:** Currently supports real-time **speech recognition, translation, and text-to-speech** between **Hindi, Kannada, Tamil, and Telugu** (more Indic languages coming soon!)
+* **Supported Languages:** Currently supports real-time **speech recognition, translation, and text-to-speech** between **Hindi, Kannada, Tamil, Telugu, Marathi and Malayalam** (more Indic languages coming soon!)
 * **Real-time Offline Speech Recognition:** Powered by **Sherpa-ONNX** using the [**AI4Bharat IndicConformer**](https://huggingface.co/ai4bharat/IndicConformer) model for high-speed, local transcription.
 * **On-Device Translation:** Leverages the [**Sarvam Translate**](https://huggingface.co/sarvamai/sarvam-translate) model (from Sarvam AI) running via `llama.cpp` through JNI for highly accurate offline machine translation.
 * **Native Text-to-Speech (TTS):** Automatically speaks the translated text using Android's native offline TTS engine.
