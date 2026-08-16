@@ -186,7 +186,7 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
                                         val loadTime = System.currentTimeMillis() - startLoadTime
                                         
                                         Firebase.analytics.logEvent("model_load_completed") {
-                                            param("model_load_time_ms", loadTime.toLong())
+                                            param("model_load_time_ms", loadTime)
                                         }
                                         
                                         if (llamaCtx != 0L) _isModelReady.value = true
@@ -204,7 +204,7 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
                     val loadTime = System.currentTimeMillis() - startLoadTime
                     
                     Firebase.analytics.logEvent("model_load_completed") {
-                        param("model_load_time_ms", loadTime.toLong())
+                        param("model_load_time_ms", loadTime)
                     }
                     
                     if (llamaCtx != 0L) {
@@ -256,8 +256,8 @@ class TranslationViewModel(application: Application) : AndroidViewModel(applicat
                 android.util.Log.d("LlamaTest", "Translation: '$translated'")
                 
                 Firebase.analytics.logEvent("translation_completed") {
-                    param("asr_duration_ms", asrTime.toLong())
-                    param("translation_duration_ms", transTime.toLong())
+                    param("asr_duration_ms", asrTime)
+                    param("translation_duration_ms", transTime)
                     param("source_language", _srcLang.value)
                     param("target_language", targetLangCode)
                     param("input_char_count", resultText.length.toLong())
