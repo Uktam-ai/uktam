@@ -6,7 +6,7 @@ Uktam.ai ("we", "our", or "us") is committed to protecting your privacy. This Pr
 
 ## 1. Information Collection and Use
 
-Uktam.ai is a privacy-first application. While all core translation features operate entirely offline, we do collect limited, anonymized performance data to improve the application (detailed in Section 2).
+Uktam.ai is a privacy-first application. While all core speech pipeline features operate entirely offline, we do collect limited, anonymized performance data to improve the application (detailed in Section 2).
 
 ### Audio Data and Microphone Access
 Our application requires access to your device's microphone (`android.permission.RECORD_AUDIO`) to provide real-time speech-to-text functionality.
