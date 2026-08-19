@@ -16,3 +16,6 @@ local.properties
 *.so
 *.ptl
 *.gguf
+google-services.json
+*.aab
+*.apk
